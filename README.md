@@ -5,9 +5,9 @@ ScreenKeyboard is an extremely simplistic, grid-of-buttons style on-screen keybo
 ![screenshot](pictures/screenshot.png)
 
 
-## Download and Installation ##
+## [Download](https://github.com/flinti/ScreenKeyboard/releases/download/v1.0/ScreenKeyboard.exe) and Installation ##
 
-There is no installation required, just download the ScreenKeyboard.exe file and start it.
+There is no installation required, just download the [ScreenKeyboard.exe](https://github.com/flinti/ScreenKeyboard/releases/download/v1.0/ScreenKeyboard.exe) file and start it.
 
 This application was quickly written to ease writing phonetic transcriptions for the English language and to help writing Old and Middle English texts. However, due to its configurable nature, it may be of use to anyone who needs quick access to a set of unicode characters on Windows.
 
