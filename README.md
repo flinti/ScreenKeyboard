@@ -4,12 +4,11 @@ ScreenKeyboard is an extremely simplistic, grid-of-buttons style on-screen keybo
 
 ![screenshot](pictures/screenshot.png)
 
+This application was quickly written to ease writing phonetic transcriptions for the English language and to help writing Old and Middle English texts. However, due to its configurable nature, it may be of use to anyone who needs quick access to a set of unicode characters on Windows.
 
 ## [Download](https://github.com/flinti/ScreenKeyboard/releases/download/v1.0/ScreenKeyboard.exe) and Installation ##
 
 There is no installation required, just download the [ScreenKeyboard.exe](https://github.com/flinti/ScreenKeyboard/releases/download/v1.0/ScreenKeyboard.exe) file and start it.
-
-This application was quickly written to ease writing phonetic transcriptions for the English language and to help writing Old and Middle English texts. However, due to its configurable nature, it may be of use to anyone who needs quick access to a set of unicode characters on Windows.
 
 ## How to use ##
 Start the ScreenKeyboard.exe file to open the keyboard. The keyboard window remains in the background and keeps your writing application focused. Clicking a button will input the character(s) shown as the button's text into your focused application window. Pressing *Shift* while clicking will insert uppercase character(s), if defined in the layout.
