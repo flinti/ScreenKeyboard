@@ -54,7 +54,7 @@ vector<Config> configs;
 
 bool ReadUserConfigFiles()
 {
-    bool use_default = true;
+    bool loaded_any_custom_layouts = false;
     wchar_t* documents_path_c = NULL;
 
 
@@ -66,19 +66,33 @@ bool ReadUserConfigFiles()
     {
         filesystem::path config_path(documents_path_str);
         config_path /= "ScreenKeyboard";
+
+        error_code err;
+        if (!filesystem::is_directory(config_path, err))
+            return false;
+
         filesystem::directory_iterator dir_iter(config_path);
         for (auto& path_iter : dir_iter)
         {
-            if (path_iter.is_regular_file() or path_iter.is_symlink())
+            filesystem::path path = path_iter.path();
+            try
             {
-                filesystem::path path = path_iter.path();
-                if (path.extension() == ".json")
+                if (path_iter.is_regular_file() or path_iter.is_symlink())
                 {
-                    Config cfg;
-                    LoadConfig(cfg, path);
-                    configs.push_back(cfg);
-                    use_default = false;
+                    if (path.extension() == ".json")
+                    {
+                        Config cfg;
+                        LoadConfig(cfg, path);
+                        configs.push_back(cfg);
+                        loaded_any_custom_layouts = true;
+                    }
                 }
+            }
+            catch (exception& e)
+            {
+                stringstream text;
+                text << "The layout file '" << path << "' could not be loaded: " << e.what() << "\n\nPress OK to continue.";
+                MessageBoxA(NULL, text.str().c_str(), "One of the user layout files could not be loaded", MB_OK | MB_ICONWARNING);
             }
         }
     }
@@ -89,7 +103,7 @@ bool ReadUserConfigFiles()
         MessageBoxA(NULL, text.str().c_str(), "Error while loading user layout files", MB_OK | MB_ICONERROR);
     }
 
-    return !use_default;
+    return loaded_any_custom_layouts;
 }
 
 
